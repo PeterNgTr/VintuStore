@@ -55,6 +55,9 @@
             this.txtIMEI.Name = "txtIMEI";
             this.txtIMEI.Size = new System.Drawing.Size(246, 21);
             this.txtIMEI.TabIndex = 1;
+            this.txtIMEI.Click += new System.EventHandler(this.txtIMEI_Click);
+            this.txtIMEI.KeyDown += new System.Windows.Forms.KeyEventHandler(this.input_KeyDown);
+            this.txtIMEI.Leave += new System.EventHandler(this.txtIMEI_Leave);
             // 
             // btnCheckVS
             // 
@@ -79,21 +82,22 @@
             // lblWelcome
             // 
             this.lblWelcome.AutoSize = true;
-            this.lblWelcome.Font = new System.Drawing.Font("Sitka Small", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblWelcome.Font = new System.Drawing.Font("Stencil", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblWelcome.ForeColor = System.Drawing.Color.Red;
             this.lblWelcome.Location = new System.Drawing.Point(277, 30);
             this.lblWelcome.Name = "lblWelcome";
-            this.lblWelcome.Size = new System.Drawing.Size(571, 70);
+            this.lblWelcome.Size = new System.Drawing.Size(597, 58);
             this.lblWelcome.TabIndex = 4;
-            this.lblWelcome.Text = "Chao mung den voi VintuStore\r\nNoi ban se tim thay nhung dieu tuyet voi nhat";
+            this.lblWelcome.Text = "Welcome to VintuStore\r\nNoi ban se tim thay nhung dieu tuyet voi nhat";
+            this.lblWelcome.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // pictureBoxLoading
             // 
-            this.pictureBoxLoading.Image = global::vintustore.Properties.Resources.loading;
+            this.pictureBoxLoading.Image = global::vintustore.Properties.Resources.iphone_5s_6_grass;
             this.pictureBoxLoading.InitialImage = global::vintustore.Properties.Resources.ajax_loader;
-            this.pictureBoxLoading.Location = new System.Drawing.Point(498, 138);
+            this.pictureBoxLoading.Location = new System.Drawing.Point(283, 103);
             this.pictureBoxLoading.Name = "pictureBoxLoading";
-            this.pictureBoxLoading.Size = new System.Drawing.Size(121, 105);
+            this.pictureBoxLoading.Size = new System.Drawing.Size(565, 140);
             this.pictureBoxLoading.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBoxLoading.TabIndex = 5;
             this.pictureBoxLoading.TabStop = false;
@@ -102,7 +106,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(860, 279);
+            this.ClientSize = new System.Drawing.Size(873, 279);
             this.Controls.Add(this.pictureBoxLoading);
             this.Controls.Add(this.lblWelcome);
             this.Controls.Add(this.btnCheckWeb);

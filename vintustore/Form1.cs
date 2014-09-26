@@ -19,6 +19,12 @@ namespace vintustore
         {
             InitializeComponent();
             SetDefaults();
+            MaximizeBox = false;
+            MinimizeBox = false;
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+
+            txtIMEI.ForeColor = Color.Gray;
+            txtIMEI.Text = "Nhap so IMEI gom 15 chu so vao";
 
         }
 
@@ -95,7 +101,7 @@ namespace vintustore
         {
             txtIMEI.Text = "";
             txtIMEI.Focus();
-            pictureBoxLoading.Visible = false;
+            pictureBoxLoading.Visible = true;
             
         }
 
@@ -108,6 +114,14 @@ namespace vintustore
             else
             {
                 return true;
+            }
+        }
+
+        private void input_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyData == Keys.Enter)
+            {
+                btnCheckVS_Click(sender, e);
             }
         }
 
@@ -135,12 +149,12 @@ namespace vintustore
 
                         //Show the return data
                         pictureBoxLoading.Visible = false;
-                        lblWelcome.Text = "Dien thoai mua o cua hang VintuStore" +"\n" + "Ten dien thoai:" + values[0] + "\n" + "IMEI:" + values[1] + "\n" + "Gia:" + values[2] + "\n" + "Thong tin them:" + values[3];
+                        lblWelcome.Text = "Dien thoai nay mua o cua hang VintuStore" + "\n" +"\n" + "Ten dien thoai:" + values[0] + "\n" + "IMEI:" + values[1] + "\n" + "Gia khi mua:" + values[2] + "\n" + "Thong tin them:" + values[3];
                     }
                     else
                     {
                         pictureBoxLoading.Visible = false;
-                        lblWelcome.Text = "May nay khong phai mua o VintuStore";                    
+                        lblWelcome.Text = "\n" + "\n" + "\n" + "         May nay khong phai mua o VintuStore";                    
                     }
                                  
 
@@ -161,6 +175,20 @@ namespace vintustore
         private void btnCheckWeb_Click(object sender, EventArgs e)
         {
             System.Diagnostics.Process.Start("https://selfsolve.apple.com/agreementWarrantyDynamic.do");
+        }
+
+        private void txtIMEI_Click(object sender, EventArgs e)
+        {
+            txtIMEI.ForeColor = Color.Black;
+            txtIMEI.Text = "";
+        }
+
+       
+
+        private void txtIMEI_Leave(object sender, EventArgs e)
+        {
+            txtIMEI.ForeColor = Color.Gray;
+            txtIMEI.Text = "Nhap so IMEI gom 15 chu so vao";
         }
 
     }
