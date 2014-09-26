@@ -1,0 +1,12 @@
+c:\users\thanh\documents\visual studio 2010\Projects\vintustore\vintustore\bin\Debug\vintustore.exe
+c:\users\thanh\documents\visual studio 2010\Projects\vintustore\vintustore\bin\Debug\vintustore.pdb
+c:\users\thanh\documents\visual studio 2010\Projects\vintustore\vintustore\obj\x86\Debug\vintustore.Form1.resources
+c:\users\thanh\documents\visual studio 2010\Projects\vintustore\vintustore\obj\x86\Debug\vintustore.Properties.Resources.resources
+c:\users\thanh\documents\visual studio 2010\Projects\vintustore\vintustore\obj\x86\Debug\vintustore.csproj.GenerateResource.Cache
+c:\users\thanh\documents\visual studio 2010\Projects\vintustore\vintustore\obj\x86\Debug\vintustore.exe
+c:\users\thanh\documents\visual studio 2010\Projects\vintustore\vintustore\obj\x86\Debug\vintustore.pdb
+c:\users\thanh\documents\visual studio 2010\Projects\vintustore\vintustore\obj\x86\Debug\vintustore.csprojResolveAssemblyReference.cache
+c:\users\thanh\documents\visual studio 2010\Projects\vintustore\vintustore\bin\Debug\vintustore.exe.config
+c:\users\thanh\documents\visual studio 2010\Projects\vintustore\vintustore\bin\Debug\Newtonsoft.Json.dll
+c:\users\thanh\documents\visual studio 2010\Projects\vintustore\vintustore\bin\Debug\Newtonsoft.Json.pdb
+c:\users\thanh\documents\visual studio 2010\Projects\vintustore\vintustore\bin\Debug\Newtonsoft.Json.xml
