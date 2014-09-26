@@ -95,6 +95,7 @@
     <None Include="Resources\vintustore.ico" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\iphone_5s_6_grass1.jpg" />
     <Content Include="vintustore.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
