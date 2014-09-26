@@ -8,8 +8,6 @@ using System.Windows.Forms;
 using System.Text.RegularExpressions;
 using System.Net;
 using System.IO;
-using Newtonsoft.Json.Linq;
-using Newtonsoft.Json;
 using System.Xml;
 
 
@@ -137,7 +135,7 @@ namespace vintustore
 
                         //Show the return data
                         pictureBoxLoading.Visible = false;
-                        lblWelcome.Text = "Name:" + values[1] + "\n" + "IMEI:" + values[2] + "\n" + "Price:" + values[3] + "\n" + "Specs:" + values[4];
+                        lblWelcome.Text = "Dien thoai mua o cua hang VintuStore" +"\n" + "Ten dien thoai:" + values[0] + "\n" + "IMEI:" + values[1] + "\n" + "Gia:" + values[2] + "\n" + "Thong tin them:" + values[3];
                     }
                     else
                     {

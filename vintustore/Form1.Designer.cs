@@ -81,7 +81,7 @@
             this.lblWelcome.AutoSize = true;
             this.lblWelcome.Font = new System.Drawing.Font("Sitka Small", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblWelcome.ForeColor = System.Drawing.Color.Red;
-            this.lblWelcome.Location = new System.Drawing.Point(288, 79);
+            this.lblWelcome.Location = new System.Drawing.Point(277, 30);
             this.lblWelcome.Name = "lblWelcome";
             this.lblWelcome.Size = new System.Drawing.Size(571, 70);
             this.lblWelcome.TabIndex = 4;
@@ -89,9 +89,9 @@
             // 
             // pictureBoxLoading
             // 
-            this.pictureBoxLoading.Image = global::vintustore.Properties.Resources.ajax_loader;
+            this.pictureBoxLoading.Image = global::vintustore.Properties.Resources.loading;
             this.pictureBoxLoading.InitialImage = global::vintustore.Properties.Resources.ajax_loader;
-            this.pictureBoxLoading.Location = new System.Drawing.Point(507, 162);
+            this.pictureBoxLoading.Location = new System.Drawing.Point(498, 138);
             this.pictureBoxLoading.Name = "pictureBoxLoading";
             this.pictureBoxLoading.Size = new System.Drawing.Size(121, 105);
             this.pictureBoxLoading.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
