@@ -18,3 +18,13 @@ E:\Development\Vintustore\vintustore\bin\Debug\vintustore.exe
 E:\Development\Vintustore\vintustore\bin\Debug\vintustore.pdb
 E:\Development\Vintustore\vintustore\obj\x86\Debug\vintustore.exe
 E:\Development\Vintustore\vintustore\obj\x86\Debug\vintustore.pdb
+D:\vintustore\vintustore\bin\Debug\vintustore.exe.config
+D:\vintustore\vintustore\obj\x86\Debug\vintustore.Form1.resources
+D:\vintustore\vintustore\obj\x86\Debug\vintustore.Login.resources
+D:\vintustore\vintustore\obj\x86\Debug\vintustore.Properties.Resources.resources
+D:\vintustore\vintustore\obj\x86\Debug\vintustore.csproj.GenerateResource.Cache
+D:\vintustore\vintustore\bin\Debug\vintustore.exe
+D:\vintustore\vintustore\bin\Debug\vintustore.pdb
+D:\vintustore\vintustore\obj\x86\Debug\vintustore.exe
+D:\vintustore\vintustore\obj\x86\Debug\vintustore.pdb
+D:\vintustore\vintustore\obj\x86\Debug\vintustore.Adminpage.resources

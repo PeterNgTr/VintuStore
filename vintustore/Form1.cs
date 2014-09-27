@@ -13,19 +13,24 @@ using System.Xml;
 
 namespace vintustore
 {
-    public partial class Form1 : Form
+    public partial class Form1 : Form 
     {
         public Form1()
         {
             InitializeComponent();
             SetDefaults();
-            MaximizeBox = false;
-            MinimizeBox = false;
-            FormBorderStyle = FormBorderStyle.FixedSingle;
+            SetForm();
 
             txtIMEI.ForeColor = Color.Gray;
             txtIMEI.Text = "Nhap so IMEI gom 15 chu so vao";
 
+        }
+
+        //Set form
+        public void SetForm()
+        {
+            MaximizeBox = false;
+            FormBorderStyle = FormBorderStyle.FixedSingle;
         }
 
         //CHeck IMEI textbox is not NULL or empty
@@ -136,9 +141,15 @@ namespace vintustore
                 if (CheckIMEIValid(txtIMEI) == true)
                 {
                     pictureBoxLoading.Visible = true;
-                    //Get info from server                                                  
-                    var respond = new WebClient().DownloadString("http://vintustore.netai.net/service.php?IMEI=" + txtIMEI.Text.ToString());
-
+                    //Get info from server   
+                    string respond;
+                    using (WebClient webClient = new WebClient())
+                    {
+                        webClient.Proxy = new WebProxy("vintustore.netai.net");
+                        respond = new WebClient().DownloadString("http://vintustore.netai.net/service.php?IMEI=" + txtIMEI.Text.ToString());
+                    
+                    }
+                                              
                     if (CheckIMEIfromVintu(respond) == true)
                     {
                         string result = respond.Substring(respond.IndexOf("[") + 1, respond.IndexOf("]") - 1);
@@ -146,10 +157,11 @@ namespace vintustore
                         //Format the data
                         string s = result;
                         string[] values = s.Split(',');
+                        string moreinfo = values[3].Trim(new Char[] { ' ', '"', '.' });
 
                         //Show the return data
                         pictureBoxLoading.Visible = false;
-                        lblWelcome.Text = "Dien thoai nay mua o cua hang VintuStore" + "\n" +"\n" + "Ten dien thoai:" + values[0] + "\n" + "IMEI:" + values[1] + "\n" + "Gia khi mua:" + values[2] + "\n" + "Thong tin them:" + values[3];
+                        lblWelcome.Text = "Dien thoai nay mua o cua hang VintuStore" + "\n" +"\n" + "Ten dien thoai:" + values[0] + "\n" + "IMEI:" + values[1] + "\n" + "Gia khi mua:" + values[2] + "\n" + "Thong tin them:" + moreinfo;
                     }
                     else
                     {
@@ -190,6 +202,25 @@ namespace vintustore
             txtIMEI.ForeColor = Color.Gray;
             txtIMEI.Text = "Nhap so IMEI gom 15 chu so vao";
         }
+
+        public static void ThreadProc()
+        {
+            Application.Run(new Login());
+        }
+
+        private void btn_Admin_Click(object sender, EventArgs e)
+        {           
+            this.Close();         
+            System.Threading.Thread t = new System.Threading.Thread(new System.Threading.ThreadStart(ThreadProc));
+            t.Start();           
+        }
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
+        }
+
+        
 
     }
 }
