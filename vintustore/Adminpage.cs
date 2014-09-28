@@ -38,6 +38,7 @@ namespace vintustore
 
             tbx_PurID.Text = purchaseprefix + RandomString(5);
             tbx_Date.Text = getCurrentDate();
+            tbx_Specs.Text = "Tinh trang may:" + "\r\n" + "Bao hanh den:";
           
         }
 
@@ -120,6 +121,24 @@ namespace vintustore
         {
             Application.Exit();
         }
+
+        public void SetReadOnlyTextbox(bool value)
+        {
+            tbx_IMEI.ReadOnly = value;
+            tbx_Name.ReadOnly = value;
+            tbx_Price.ReadOnly = value;
+            tbx_Specs.ReadOnly = value;
+        }
+
+        public void ResetTextbox()
+        {
+            tbx_IMEI.Text = "";
+            tbx_IMEI.Focus();
+            tbx_Name.Text = "";
+            tbx_Price.Text = "";
+            tbx_Specs.Text = "Tinh trang may:" + "\r\n"+ "Bao hanh den:";
+            tbx_PurID.Text = purchaseprefix + RandomString(5);
+        }
       
         private void btn_Purchase_Click(object sender, EventArgs e)
         {
@@ -133,12 +152,13 @@ namespace vintustore
                         if (CheckForInternetConnection() == true)
                         {
                            // ptb_loading.Visible = true;
+                            SetReadOnlyTextbox(true);
                             string adddevice;
                             string addpurchase;
                             using (WebClient webClient = new WebClient())
                             {
                                 webClient.Proxy = new WebProxy("vintustore.netai.net");
-                                adddevice = new WebClient().DownloadString("http://vintustore.netai.net/addnewdevice.php?name=" + tbx_Name.Text + "&imei=" + tbx_IMEI.Text + "&price=" + tbx_Price.Text + "&specs=" + tbx_Specs.Text + " " + tbx_Seller.Text + " " + tbx_Date.Text + " " + tbx_PurID.Text);
+                                adddevice = new WebClient().DownloadString("http://vintustore.netai.net/addnewdevice.php?name=" + tbx_Name.Text + "&imei=" + tbx_IMEI.Text + "&price=" + tbx_Price.Text + "&specs=" + tbx_Specs.Text);
                                 addpurchase = new WebClient().DownloadString("http://vintustore.netai.net/addnewpurchasing.php?purid=" + tbx_PurID.Text + "&imei=" + tbx_IMEI.Text + "&purdate=" + tbx_Date.Text + "&adminid=" + tbx_Seller.Text);
                             }
 
@@ -146,18 +166,21 @@ namespace vintustore
                             if (adddevice == "device\t" && addpurchase == "purchase\t")
                             {
                               //  ptb_loading.Visible = false;
+                                SetReadOnlyTextbox(false);
                                 MessageBox.Show("Da nhap thanh cong", "Info");
-                                this.Hide();
+                                ResetTextbox();
+                                
+                              //  this.Hide();
                                 
 
-                                Form1 checkIMEI = new Form1();
-                                checkIMEI.Show();
+                              //  Form1 checkIMEI = new Form1();
+                              //  checkIMEI.Show();
                             }
                             else
                             {
 
                                 MessageBox.Show("Xin thu lai. Giao dich khong thanh cong", "Info");
-                                tbx_PurID.Text = purchaseprefix + RandomString(5);
+                                
                             }
                         }
                         else

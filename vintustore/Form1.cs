@@ -140,7 +140,7 @@ namespace vintustore
                 //Check IMEI is valid or not
                 if (CheckIMEIValid(txtIMEI) == true)
                 {
-                    pictureBoxLoading.Visible = true;
+                    pictureBoxLoading.Visible = false;
                     //Get info from server   
                     string respond;
                     using (WebClient webClient = new WebClient())
@@ -157,16 +157,17 @@ namespace vintustore
                         //Format the data
                         string s = result;
                         string[] values = s.Split(',');
-                        string moreinfo = values[3].Trim(new Char[] { ' ', '"', '.' });
+                        string condition = values[3].Trim(new Char[] { '"', '*', '\r' });
 
                         //Show the return data
                         pictureBoxLoading.Visible = false;
-                        lblWelcome.Text = "Dien thoai nay mua o cua hang VintuStore" + "\n" +"\n" + "Ten dien thoai:" + values[0] + "\n" + "IMEI:" + values[1] + "\n" + "Gia khi mua:" + values[2] + "\n" + "Thong tin them:" + moreinfo;
+                        lblWelcome.Text = "Dien thoai nay mua o cua hang VintuStore" + "\n" +"\n" + "Ten dien thoai:" + values[0] + "\n" + "IMEI:" + values[1] + "\n" + "Gia khi mua:" + values[2] + "\n" + condition +"\n"+ "Ngay mua:" + values[4] +"\n"+ "Nguoi ban:" + values[5];
+                        txtIMEI.Text = "";
                     }
                     else
                     {
                         pictureBoxLoading.Visible = false;
-                        lblWelcome.Text = "\n" + "\n" + "\n" + "         May nay khong phai mua o VintuStore";                    
+                        lblWelcome.Text = "\n" + "\n" + "\n" + "        Xin loi! May nay khong phai mua o VintuStore !!!!!!!";                    
                     }
                                  
 
