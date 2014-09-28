@@ -218,6 +218,7 @@
             this.Controls.Add(this.lbl_welcome);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Adminpage";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Adminpage";
             this.TransparencyKey = System.Drawing.Color.Tomato;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Adminpage_FormClosing);

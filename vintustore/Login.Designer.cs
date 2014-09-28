@@ -28,12 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Login));
             this.lbl_admin_welcome = new System.Windows.Forms.Label();
             this.tbx_username = new System.Windows.Forms.TextBox();
             this.tbx_password = new System.Windows.Forms.TextBox();
             this.lbl_username = new System.Windows.Forms.Label();
             this.lbl_password = new System.Windows.Forms.Label();
             this.btn_signin = new System.Windows.Forms.Button();
+            this.btn_Back = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lbl_admin_welcome
@@ -83,24 +85,37 @@
             // 
             this.btn_signin.Location = new System.Drawing.Point(23, 148);
             this.btn_signin.Name = "btn_signin";
-            this.btn_signin.Size = new System.Drawing.Size(205, 56);
+            this.btn_signin.Size = new System.Drawing.Size(205, 37);
             this.btn_signin.TabIndex = 5;
             this.btn_signin.Text = "Dang Nhap";
             this.btn_signin.UseVisualStyleBackColor = true;
             this.btn_signin.Click += new System.EventHandler(this.btn_signin_Click);
             // 
+            // btn_Back
+            // 
+            this.btn_Back.Location = new System.Drawing.Point(24, 191);
+            this.btn_Back.Name = "btn_Back";
+            this.btn_Back.Size = new System.Drawing.Size(205, 37);
+            this.btn_Back.TabIndex = 6;
+            this.btn_Back.Text = "Tro ve";
+            this.btn_Back.UseVisualStyleBackColor = true;
+            this.btn_Back.Click += new System.EventHandler(this.btn_Back_Click);
+            // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(257, 220);
+            this.ClientSize = new System.Drawing.Size(257, 267);
+            this.Controls.Add(this.btn_Back);
             this.Controls.Add(this.btn_signin);
             this.Controls.Add(this.lbl_password);
             this.Controls.Add(this.lbl_username);
             this.Controls.Add(this.tbx_password);
             this.Controls.Add(this.tbx_username);
             this.Controls.Add(this.lbl_admin_welcome);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Login";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -115,5 +130,6 @@
         private System.Windows.Forms.Label lbl_username;
         private System.Windows.Forms.Label lbl_password;
         private System.Windows.Forms.Button btn_signin;
+        private System.Windows.Forms.Button btn_Back;
     }
 }

@@ -1,0 +1,10 @@
+D:\vintustore\vintustore\bin\Release\vintustore.exe.config
+D:\vintustore\vintustore\bin\Release\vintustore.exe
+D:\vintustore\vintustore\bin\Release\vintustore.pdb
+D:\vintustore\vintustore\obj\x86\Release\vintustore.Adminpage.resources
+D:\vintustore\vintustore\obj\x86\Release\vintustore.Form1.resources
+D:\vintustore\vintustore\obj\x86\Release\vintustore.Login.resources
+D:\vintustore\vintustore\obj\x86\Release\vintustore.Properties.Resources.resources
+D:\vintustore\vintustore\obj\x86\Release\vintustore.csproj.GenerateResource.Cache
+D:\vintustore\vintustore\obj\x86\Release\vintustore.exe
+D:\vintustore\vintustore\obj\x86\Release\vintustore.pdb
