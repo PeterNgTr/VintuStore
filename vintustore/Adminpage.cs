@@ -40,12 +40,15 @@ namespace vintustore
             tbx_Date.Text = getCurrentDate();
             tbx_Specs.Text = "Tinh trang may:";
             tbx_Specs1.Text = "Bao hanh den:";
+            ShowThePasswordArea(false);
         }
 
-        internal void PassSeller(string sellername)
+        internal void PassSeller(string sellername,string email)
         {
             lbl_welcome.Text = "Chao mung: " + sellername;
             tbx_Seller.Text = sellername;
+            lbl_username.Text = "Chu TK: " + sellername;
+            lbl_email.Text = "Email TK: " + email.Replace("]","");
         }
 
         public string getCurrentDate()
@@ -141,6 +144,19 @@ namespace vintustore
             tbx_Specs1.Text = "Bao hanh den:";
             tbx_PurID.Text = purchaseprefix + RandomString(5);
         }
+
+        public void ShowThePasswordArea(bool value)
+        {
+            lbl_newpass.Visible = value;
+            tbx_newpass.Visible = value;
+            tbx_newpass.Text = "";
+            btn_cancel.Visible = value;
+            lbl_confirmpass.Visible = value;
+            tbx_confirmnewpass.Visible = value;
+            tbx_confirmnewpass.Text = "";
+            btn_OK.Visible = value;
+
+        }
       
         private void btn_Purchase_Click(object sender, EventArgs e)
         {
@@ -212,6 +228,62 @@ namespace vintustore
                 MessageBox.Show("Xin vui long nhap Ten dien thoai", "Info");
             }
            
+        }
+
+        private void linklbl_changepassword_Click(object sender, EventArgs e)
+        {
+            ShowThePasswordArea(true);
+        }
+
+        private void btn_cancel_Click(object sender, EventArgs e)
+        {
+            ShowThePasswordArea(false);
+        }
+
+
+        public bool CheckMatch(TextBox tb1, TextBox tb2)
+        {
+            if (tb1.Text == tb2.Text)
+            {
+                return true;
+            }
+            else 
+            {
+                return false;
+            }
+        }
+
+        public bool CheckValidPassword(TextBox tb1)
+        {
+            Regex regex = new Regex("^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d]{8,}$");
+            if (regex.IsMatch(tb1.Text))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public void btn_OK_Click(object sender, EventArgs e)
+        {
+            if (CheckValidPassword(tbx_newpass) == true)
+            {
+                if (CheckMatch(tbx_newpass, tbx_confirmnewpass) == true)
+                {
+
+                }
+                else
+                {
+                    MessageBox.Show("Xac nhan mat khau khong trung voi mat khau moi", "Info");
+                    tbx_confirmnewpass.Focus();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Xin nhap mat khau moi."+"\n"+"Mat khau phai:" +"\n"+ "-Bat dau bang chu"+"\n"+ "-Lon hon hoac bang 8 ky tu","Info");
+            }
         }
        
     }

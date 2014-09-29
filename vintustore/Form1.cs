@@ -13,7 +13,7 @@ using System.Xml;
 
 namespace vintustore
 {
-    public partial class Form1 : Form 
+    public partial class Form1 : Form
     {
         public Form1()
         {
@@ -130,37 +130,7 @@ namespace vintustore
             }
         }
 
-        public static string EscapeStringValue(string value)
-        {
-            const char BACK_SLASH = '\\';
-            const char SLASH = '/';
-            const char DBL_QUOTE = '"';
-
-            var output = new StringBuilder(value.Length);
-            foreach (char c in value)
-            {
-                switch (c)
-                {
-                    case SLASH:
-                        output.AppendFormat("{0}{1}", BACK_SLASH, SLASH);
-                        break;
-
-                    case BACK_SLASH:
-                        output.AppendFormat("{0}{0}", BACK_SLASH);
-                        break;
-
-                    case DBL_QUOTE:
-                        output.AppendFormat("{0}{1}", BACK_SLASH, DBL_QUOTE);
-                        break;
-
-                    default:
-                        output.Append(c);
-                        break;
-                }
-            }
-
-            return output.ToString();
-        }
+        
 
        
 
@@ -195,7 +165,7 @@ namespace vintustore
 
                             //Show the return data
                             pictureBoxLoading.Visible = false;
-                            lblWelcome.Text = "Dien thoai nay mua o cua hang VintuStore" + "\n" + "\n" + "Ten dien thoai:" + values[0] + "\n" + "IMEI:" + values[1] + "\n" + "Gia khi mua:" + values[2] + "\n" + values[3] + "\n" + values[4] + "\n" + "Ngay mua:" + values[5] + "\n" + "Nguoi ban:" + values[6];
+                            lblWelcome.Text = "Dien thoai nay mua o cua hang VintuStore" + "\n" + "\n" + "Ten dien thoai:" + values[0] + "\n" + "IMEI:" + values[1] + "\n" + "Gia khi mua:" + values[2] + "\n" + values[3] + "\n" + values[4] + "\n" + "Ngay mua:" + values[5] + "\n" + "Nguoi ban:" + values[6] + "\n" + "\n" + "\n";
                             txtIMEI.Text = "";
                         }
                         else
