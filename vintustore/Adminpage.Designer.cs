@@ -46,6 +46,7 @@
             this.btn_Purchase = new System.Windows.Forms.Button();
             this.tbx_Price = new System.Windows.Forms.TextBox();
             this.lbl_Price = new System.Windows.Forms.Label();
+            this.tbx_Specs1 = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // lbl_welcome
@@ -77,6 +78,7 @@
             // tbx_Name
             // 
             this.tbx_Name.Location = new System.Drawing.Point(84, 99);
+            this.tbx_Name.MaxLength = 128;
             this.tbx_Name.Name = "tbx_Name";
             this.tbx_Name.Size = new System.Drawing.Size(214, 20);
             this.tbx_Name.TabIndex = 4;
@@ -93,15 +95,15 @@
             // tbx_Specs
             // 
             this.tbx_Specs.Location = new System.Drawing.Point(84, 151);
-            this.tbx_Specs.Multiline = true;
+            this.tbx_Specs.MaxLength = 1024;
             this.tbx_Specs.Name = "tbx_Specs";
-            this.tbx_Specs.Size = new System.Drawing.Size(214, 85);
+            this.tbx_Specs.Size = new System.Drawing.Size(214, 20);
             this.tbx_Specs.TabIndex = 6;
             // 
             // lbl_Specs
             // 
             this.lbl_Specs.AutoSize = true;
-            this.lbl_Specs.Location = new System.Drawing.Point(10, 174);
+            this.lbl_Specs.Location = new System.Drawing.Point(11, 158);
             this.lbl_Specs.Name = "lbl_Specs";
             this.lbl_Specs.Size = new System.Drawing.Size(45, 13);
             this.lbl_Specs.TabIndex = 5;
@@ -109,7 +111,7 @@
             // 
             // tbx_Date
             // 
-            this.tbx_Date.Location = new System.Drawing.Point(84, 242);
+            this.tbx_Date.Location = new System.Drawing.Point(84, 206);
             this.tbx_Date.Name = "tbx_Date";
             this.tbx_Date.ReadOnly = true;
             this.tbx_Date.Size = new System.Drawing.Size(214, 20);
@@ -118,7 +120,7 @@
             // lbl_Date
             // 
             this.lbl_Date.AutoSize = true;
-            this.lbl_Date.Location = new System.Drawing.Point(10, 244);
+            this.lbl_Date.Location = new System.Drawing.Point(10, 208);
             this.lbl_Date.Name = "lbl_Date";
             this.lbl_Date.Size = new System.Drawing.Size(58, 13);
             this.lbl_Date.TabIndex = 7;
@@ -126,7 +128,7 @@
             // 
             // tbx_Seller
             // 
-            this.tbx_Seller.Location = new System.Drawing.Point(84, 268);
+            this.tbx_Seller.Location = new System.Drawing.Point(84, 232);
             this.tbx_Seller.Name = "tbx_Seller";
             this.tbx_Seller.ReadOnly = true;
             this.tbx_Seller.Size = new System.Drawing.Size(214, 20);
@@ -135,7 +137,7 @@
             // lbl_Seller
             // 
             this.lbl_Seller.AutoSize = true;
-            this.lbl_Seller.Location = new System.Drawing.Point(10, 270);
+            this.lbl_Seller.Location = new System.Drawing.Point(10, 234);
             this.lbl_Seller.Name = "lbl_Seller";
             this.lbl_Seller.Size = new System.Drawing.Size(59, 13);
             this.lbl_Seller.TabIndex = 9;
@@ -160,7 +162,7 @@
             // 
             // btn_exit
             // 
-            this.btn_exit.Location = new System.Drawing.Point(17, 307);
+            this.btn_exit.Location = new System.Drawing.Point(17, 271);
             this.btn_exit.Name = "btn_exit";
             this.btn_exit.Size = new System.Drawing.Size(123, 38);
             this.btn_exit.TabIndex = 13;
@@ -170,7 +172,7 @@
             // 
             // btn_Purchase
             // 
-            this.btn_Purchase.Location = new System.Drawing.Point(175, 307);
+            this.btn_Purchase.Location = new System.Drawing.Point(175, 271);
             this.btn_Purchase.Name = "btn_Purchase";
             this.btn_Purchase.Size = new System.Drawing.Size(123, 38);
             this.btn_Purchase.TabIndex = 14;
@@ -181,6 +183,7 @@
             // tbx_Price
             // 
             this.tbx_Price.Location = new System.Drawing.Point(84, 125);
+            this.tbx_Price.MaxLength = 128;
             this.tbx_Price.Name = "tbx_Price";
             this.tbx_Price.Size = new System.Drawing.Size(214, 20);
             this.tbx_Price.TabIndex = 16;
@@ -194,11 +197,20 @@
             this.lbl_Price.TabIndex = 15;
             this.lbl_Price.Text = "Gia ban:";
             // 
+            // tbx_Specs1
+            // 
+            this.tbx_Specs1.Location = new System.Drawing.Point(84, 177);
+            this.tbx_Specs1.MaxLength = 1024;
+            this.tbx_Specs1.Name = "tbx_Specs1";
+            this.tbx_Specs1.Size = new System.Drawing.Size(214, 20);
+            this.tbx_Specs1.TabIndex = 17;
+            // 
             // Adminpage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(311, 357);
+            this.ClientSize = new System.Drawing.Size(311, 326);
+            this.Controls.Add(this.tbx_Specs1);
             this.Controls.Add(this.tbx_Price);
             this.Controls.Add(this.lbl_Price);
             this.Controls.Add(this.btn_Purchase);
@@ -246,5 +258,6 @@
         private System.Windows.Forms.Button btn_Purchase;
         private System.Windows.Forms.TextBox tbx_Price;
         private System.Windows.Forms.Label lbl_Price;
+        private System.Windows.Forms.TextBox tbx_Specs1;
     }
 }

@@ -130,6 +130,39 @@ namespace vintustore
             }
         }
 
+        public static string EscapeStringValue(string value)
+        {
+            const char BACK_SLASH = '\\';
+            const char SLASH = '/';
+            const char DBL_QUOTE = '"';
+
+            var output = new StringBuilder(value.Length);
+            foreach (char c in value)
+            {
+                switch (c)
+                {
+                    case SLASH:
+                        output.AppendFormat("{0}{1}", BACK_SLASH, SLASH);
+                        break;
+
+                    case BACK_SLASH:
+                        output.AppendFormat("{0}{0}", BACK_SLASH);
+                        break;
+
+                    case DBL_QUOTE:
+                        output.AppendFormat("{0}{1}", BACK_SLASH, DBL_QUOTE);
+                        break;
+
+                    default:
+                        output.Append(c);
+                        break;
+                }
+            }
+
+            return output.ToString();
+        }
+
+       
 
         private void btnCheckVS_Click(object sender, EventArgs e)
         {
@@ -149,28 +182,33 @@ namespace vintustore
                         respond = new WebClient().DownloadString("http://vintustore.netai.net/service.php?IMEI=" + txtIMEI.Text.ToString());
                     
                     }
-                                              
-                    if (CheckIMEIfromVintu(respond) == true)
+
+                    if (respond != null)
                     {
-                        string result = respond.Substring(respond.IndexOf("[") + 1, respond.IndexOf("]") - 1);
+                        if (CheckIMEIfromVintu(respond) == true)
+                        {
+                            string result = respond.Substring(respond.IndexOf("[") + 1, respond.IndexOf("]") - 1);
 
-                        //Format the data
-                        string s = result;
-                        string[] values = s.Split(',');
-                        string condition = values[3].Trim(new Char[] { '"', '*', '\r' });
+                            //Format the data
+                            string s = result;
+                            string[] values = s.Split(',');
 
-                        //Show the return data
-                        pictureBoxLoading.Visible = false;
-                        lblWelcome.Text = "Dien thoai nay mua o cua hang VintuStore" + "\n" +"\n" + "Ten dien thoai:" + values[0] + "\n" + "IMEI:" + values[1] + "\n" + "Gia khi mua:" + values[2] + "\n" + condition +"\n"+ "Ngay mua:" + values[4] +"\n"+ "Nguoi ban:" + values[5];
-                        txtIMEI.Text = "";
+                            //Show the return data
+                            pictureBoxLoading.Visible = false;
+                            lblWelcome.Text = "Dien thoai nay mua o cua hang VintuStore" + "\n" + "\n" + "Ten dien thoai:" + values[0] + "\n" + "IMEI:" + values[1] + "\n" + "Gia khi mua:" + values[2] + "\n" + values[3] + "\n" + values[4] + "\n" + "Ngay mua:" + values[5] + "\n" + "Nguoi ban:" + values[6];
+                            txtIMEI.Text = "";
+                        }
+                        else
+                        {
+                            pictureBoxLoading.Visible = false;
+                            lblWelcome.Text = "\n" + "\n" + "\n" + "        Xin loi! May nay khong phai mua o VintuStore !!!!!!!";
+                        }     
                     }
                     else
                     {
-                        pictureBoxLoading.Visible = false;
-                        lblWelcome.Text = "\n" + "\n" + "\n" + "        Xin loi! May nay khong phai mua o VintuStore !!!!!!!";                    
+                        MessageBox.Show("Khong the lay du lieu duoc! Xin thu lai", "Info");
                     }
-                                 
-
+    
                 }
                 else
                 {

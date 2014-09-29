@@ -28,3 +28,5 @@ D:\vintustore\vintustore\bin\Debug\vintustore.pdb
 D:\vintustore\vintustore\obj\x86\Debug\vintustore.exe
 D:\vintustore\vintustore\obj\x86\Debug\vintustore.pdb
 D:\vintustore\vintustore\obj\x86\Debug\vintustore.Adminpage.resources
+E:\Development\Vintustore\vintustore\obj\x86\Debug\vintustore.Adminpage.resources
+E:\Development\Vintustore\vintustore\obj\x86\Debug\vintustore.Login.resources
