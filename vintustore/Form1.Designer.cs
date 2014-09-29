@@ -50,7 +50,7 @@
             this.lbl_IMEICheck.AutoSize = true;
             this.lbl_IMEICheck.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_IMEICheck.ForeColor = System.Drawing.Color.Blue;
-            this.lbl_IMEICheck.Location = new System.Drawing.Point(266, 18);
+            this.lbl_IMEICheck.Location = new System.Drawing.Point(273, 18);
             this.lbl_IMEICheck.Name = "lbl_IMEICheck";
             this.lbl_IMEICheck.Size = new System.Drawing.Size(343, 33);
             this.lbl_IMEICheck.TabIndex = 0;
@@ -58,7 +58,7 @@
             // 
             // txtIMEI
             // 
-            this.txtIMEI.Location = new System.Drawing.Point(314, 67);
+            this.txtIMEI.Location = new System.Drawing.Point(321, 67);
             this.txtIMEI.MaxLength = 15;
             this.txtIMEI.Name = "txtIMEI";
             this.txtIMEI.Size = new System.Drawing.Size(247, 21);
@@ -68,7 +68,7 @@
             // 
             // btnCheckVS
             // 
-            this.btnCheckVS.Location = new System.Drawing.Point(314, 114);
+            this.btnCheckVS.Location = new System.Drawing.Point(321, 114);
             this.btnCheckVS.Name = "btnCheckVS";
             this.btnCheckVS.Size = new System.Drawing.Size(247, 54);
             this.btnCheckVS.TabIndex = 2;
@@ -78,7 +78,7 @@
             // 
             // btnCheckWeb
             // 
-            this.btnCheckWeb.Location = new System.Drawing.Point(314, 181);
+            this.btnCheckWeb.Location = new System.Drawing.Point(321, 181);
             this.btnCheckWeb.Name = "btnCheckWeb";
             this.btnCheckWeb.Size = new System.Drawing.Size(247, 56);
             this.btnCheckWeb.TabIndex = 3;
@@ -91,7 +91,7 @@
             this.lblWelcome.AutoSize = true;
             this.lblWelcome.Font = new System.Drawing.Font("Stencil", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblWelcome.ForeColor = System.Drawing.Color.Red;
-            this.lblWelcome.Location = new System.Drawing.Point(12, 319);
+            this.lblWelcome.Location = new System.Drawing.Point(206, 343);
             this.lblWelcome.Name = "lblWelcome";
             this.lblWelcome.Size = new System.Drawing.Size(477, 44);
             this.lblWelcome.TabIndex = 4;
@@ -102,16 +102,16 @@
             // 
             this.pictureBoxLoading.Image = global::vintustore.Properties.Resources.iphone_models;
             this.pictureBoxLoading.InitialImage = global::vintustore.Properties.Resources.ajax_loader;
-            this.pictureBoxLoading.Location = new System.Drawing.Point(2, 382);
+            this.pictureBoxLoading.Location = new System.Drawing.Point(17, 449);
             this.pictureBoxLoading.Name = "pictureBoxLoading";
-            this.pictureBoxLoading.Size = new System.Drawing.Size(870, 140);
+            this.pictureBoxLoading.Size = new System.Drawing.Size(898, 140);
             this.pictureBoxLoading.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBoxLoading.TabIndex = 5;
             this.pictureBoxLoading.TabStop = false;
             // 
             // btn_Admin
             // 
-            this.btn_Admin.Location = new System.Drawing.Point(314, 251);
+            this.btn_Admin.Location = new System.Drawing.Point(321, 251);
             this.btn_Admin.Name = "btn_Admin";
             this.btn_Admin.Size = new System.Drawing.Size(247, 51);
             this.btn_Admin.TabIndex = 6;
@@ -124,7 +124,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Stencil", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Red;
-            this.label1.Location = new System.Drawing.Point(12, 67);
+            this.label1.Location = new System.Drawing.Point(12, 57);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(278, 75);
             this.label1.TabIndex = 7;
@@ -147,7 +147,7 @@
             // 
             this.pictureBox1.Image = global::vintustore.Properties.Resources.iphone_5s_6_grass;
             this.pictureBox1.InitialImage = global::vintustore.Properties.Resources.ajax_loader;
-            this.pictureBox1.Location = new System.Drawing.Point(16, 114);
+            this.pictureBox1.Location = new System.Drawing.Point(16, 135);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(274, 188);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -158,7 +158,7 @@
             // 
             this.pictureBox2.Image = global::vintustore.Properties.Resources.size;
             this.pictureBox2.InitialImage = global::vintustore.Properties.Resources.ajax_loader;
-            this.pictureBox2.Location = new System.Drawing.Point(586, 162);
+            this.pictureBox2.Location = new System.Drawing.Point(614, 162);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(301, 140);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -169,7 +169,9 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(899, 536);
+            this.AutoSize = true;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.ClientSize = new System.Drawing.Size(950, 601);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label2);
