@@ -38,8 +38,8 @@ namespace vintustore
 
             tbx_PurID.Text = purchaseprefix + RandomString(5);
             tbx_Date.Text = getCurrentDate();
-            tbx_Specs.Text = "Tinh trang may:" + "\r\n" + "Bao hanh den:";
-          
+            tbx_Specs.Text = "Tinh trang may:";
+            tbx_Specs1.Text = "Bao hanh den:";
         }
 
         internal void PassSeller(string sellername)
@@ -128,6 +128,7 @@ namespace vintustore
             tbx_Name.ReadOnly = value;
             tbx_Price.ReadOnly = value;
             tbx_Specs.ReadOnly = value;
+            tbx_Specs1.ReadOnly = value;
         }
 
         public void ResetTextbox()
@@ -136,7 +137,8 @@ namespace vintustore
             tbx_IMEI.Focus();
             tbx_Name.Text = "";
             tbx_Price.Text = "";
-            tbx_Specs.Text = "Tinh trang may:" + "\r\n"+ "Bao hanh den:";
+            tbx_Specs.Text = "Tinh trang may:";
+            tbx_Specs1.Text = "Bao hanh den:";
             tbx_PurID.Text = purchaseprefix + RandomString(5);
         }
       
@@ -158,30 +160,36 @@ namespace vintustore
                             using (WebClient webClient = new WebClient())
                             {
                                 webClient.Proxy = new WebProxy("vintustore.netai.net");
-                                adddevice = new WebClient().DownloadString("http://vintustore.netai.net/addnewdevice.php?name=" + tbx_Name.Text + "&imei=" + tbx_IMEI.Text + "&price=" + tbx_Price.Text + "&specs=" + tbx_Specs.Text);
+                                adddevice = new WebClient().DownloadString("http://vintustore.netai.net/addnewdevice.php?name=" + tbx_Name.Text + "&imei=" + tbx_IMEI.Text + "&price=" + tbx_Price.Text + "&specs=" + tbx_Specs.Text+","+tbx_Specs1.Text);
                                 addpurchase = new WebClient().DownloadString("http://vintustore.netai.net/addnewpurchasing.php?purid=" + tbx_PurID.Text + "&imei=" + tbx_IMEI.Text + "&purdate=" + tbx_Date.Text + "&adminid=" + tbx_Seller.Text);
                             }
-
-
-                            if (adddevice == "device\t" && addpurchase == "purchase\t")
+                            if (adddevice != null && addpurchase != null)
                             {
-                              //  ptb_loading.Visible = false;
-                                SetReadOnlyTextbox(false);
-                                MessageBox.Show("Da nhap thanh cong", "Info");
-                                ResetTextbox();
-                                
-                              //  this.Hide();
-                                
+                                if (adddevice == "device\t" && addpurchase == "purchase\t")
+                                {
+                                    //  ptb_loading.Visible = false;
+                                    SetReadOnlyTextbox(false);
+                                    MessageBox.Show("Da nhap thanh cong", "Info");
+                                    ResetTextbox();
 
-                              //  Form1 checkIMEI = new Form1();
-                              //  checkIMEI.Show();
+                                    //  this.Hide();
+
+
+                                    //  Form1 checkIMEI = new Form1();
+                                    //  checkIMEI.Show();
+                                }
+                                else
+                                {
+
+                                    MessageBox.Show("Xin thu lai. Giao dich khong thanh cong", "Info");
+
+                                }
                             }
                             else
                             {
-
-                                MessageBox.Show("Xin thu lai. Giao dich khong thanh cong", "Info");
-                                
+                                MessageBox.Show("Xin thu lai! Co loi xay ra!","Info");
                             }
+                           
                         }
                         else
                         {
