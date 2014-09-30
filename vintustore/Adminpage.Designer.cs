@@ -50,16 +50,17 @@
             this.tbc_Invoice = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.btn_OK = new System.Windows.Forms.Button();
+            this.btn_cancel = new System.Windows.Forms.Button();
+            this.tbx_confirmnewpass = new System.Windows.Forms.TextBox();
+            this.tbx_newpass = new System.Windows.Forms.TextBox();
+            this.lbl_confirmpass = new System.Windows.Forms.Label();
+            this.lbl_newpass = new System.Windows.Forms.Label();
+            this.linklbl_changepassword = new System.Windows.Forms.LinkLabel();
             this.lbl_email = new System.Windows.Forms.Label();
             this.lbl_username = new System.Windows.Forms.Label();
             this.lbl_quantity = new System.Windows.Forms.Label();
-            this.linklbl_changepassword = new System.Windows.Forms.LinkLabel();
-            this.lbl_newpass = new System.Windows.Forms.Label();
-            this.lbl_confirmpass = new System.Windows.Forms.Label();
-            this.tbx_newpass = new System.Windows.Forms.TextBox();
-            this.tbx_confirmnewpass = new System.Windows.Forms.TextBox();
-            this.btn_cancel = new System.Windows.Forms.Button();
-            this.btn_OK = new System.Windows.Forms.Button();
+            this.linklbl_quantity = new System.Windows.Forms.LinkLabel();
             this.tbc_Invoice.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -263,6 +264,7 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.linklbl_quantity);
             this.tabPage2.Controls.Add(this.btn_OK);
             this.tabPage2.Controls.Add(this.btn_cancel);
             this.tabPage2.Controls.Add(this.tbx_confirmnewpass);
@@ -280,6 +282,73 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Thong tin TK";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // btn_OK
+            // 
+            this.btn_OK.Location = new System.Drawing.Point(129, 288);
+            this.btn_OK.Name = "btn_OK";
+            this.btn_OK.Size = new System.Drawing.Size(100, 26);
+            this.btn_OK.TabIndex = 9;
+            this.btn_OK.Text = "Dong y";
+            this.btn_OK.UseVisualStyleBackColor = true;
+            this.btn_OK.Click += new System.EventHandler(this.btn_OK_Click);
+            // 
+            // btn_cancel
+            // 
+            this.btn_cancel.Location = new System.Drawing.Point(23, 288);
+            this.btn_cancel.Name = "btn_cancel";
+            this.btn_cancel.Size = new System.Drawing.Size(100, 26);
+            this.btn_cancel.TabIndex = 8;
+            this.btn_cancel.Text = "Huy";
+            this.btn_cancel.UseVisualStyleBackColor = true;
+            this.btn_cancel.Click += new System.EventHandler(this.btn_cancel_Click);
+            // 
+            // tbx_confirmnewpass
+            // 
+            this.tbx_confirmnewpass.Location = new System.Drawing.Point(23, 230);
+            this.tbx_confirmnewpass.MaxLength = 128;
+            this.tbx_confirmnewpass.Name = "tbx_confirmnewpass";
+            this.tbx_confirmnewpass.PasswordChar = '*';
+            this.tbx_confirmnewpass.Size = new System.Drawing.Size(189, 20);
+            this.tbx_confirmnewpass.TabIndex = 7;
+            // 
+            // tbx_newpass
+            // 
+            this.tbx_newpass.Location = new System.Drawing.Point(23, 178);
+            this.tbx_newpass.MaxLength = 128;
+            this.tbx_newpass.Name = "tbx_newpass";
+            this.tbx_newpass.PasswordChar = '*';
+            this.tbx_newpass.Size = new System.Drawing.Size(189, 20);
+            this.tbx_newpass.TabIndex = 6;
+            // 
+            // lbl_confirmpass
+            // 
+            this.lbl_confirmpass.AutoSize = true;
+            this.lbl_confirmpass.Location = new System.Drawing.Point(23, 214);
+            this.lbl_confirmpass.Name = "lbl_confirmpass";
+            this.lbl_confirmpass.Size = new System.Drawing.Size(122, 13);
+            this.lbl_confirmpass.TabIndex = 5;
+            this.lbl_confirmpass.Text = "Xac nhan mat khau moi:";
+            // 
+            // lbl_newpass
+            // 
+            this.lbl_newpass.AutoSize = true;
+            this.lbl_newpass.Location = new System.Drawing.Point(23, 159);
+            this.lbl_newpass.Name = "lbl_newpass";
+            this.lbl_newpass.Size = new System.Drawing.Size(74, 13);
+            this.lbl_newpass.TabIndex = 4;
+            this.lbl_newpass.Text = "Mat khau moi:";
+            // 
+            // linklbl_changepassword
+            // 
+            this.linklbl_changepassword.AutoSize = true;
+            this.linklbl_changepassword.Location = new System.Drawing.Point(23, 119);
+            this.linklbl_changepassword.Name = "linklbl_changepassword";
+            this.linklbl_changepassword.Size = new System.Drawing.Size(70, 13);
+            this.linklbl_changepassword.TabIndex = 3;
+            this.linklbl_changepassword.TabStop = true;
+            this.linklbl_changepassword.Text = "Doi mat khau";
+            this.linklbl_changepassword.Click += new System.EventHandler(this.linklbl_changepassword_Click);
             // 
             // lbl_email
             // 
@@ -302,78 +371,22 @@
             // lbl_quantity
             // 
             this.lbl_quantity.AutoSize = true;
-            this.lbl_quantity.Location = new System.Drawing.Point(23, 89);
+            this.lbl_quantity.Location = new System.Drawing.Point(126, 86);
             this.lbl_quantity.Name = "lbl_quantity";
-            this.lbl_quantity.Size = new System.Drawing.Size(108, 13);
+            this.lbl_quantity.Size = new System.Drawing.Size(42, 13);
             this.lbl_quantity.TabIndex = 0;
-            this.lbl_quantity.Text = "So may da ban duoc:";
+            this.lbl_quantity.Text = "number";
             // 
-            // linklbl_changepassword
+            // linklbl_quantity
             // 
-            this.linklbl_changepassword.AutoSize = true;
-            this.linklbl_changepassword.Location = new System.Drawing.Point(23, 119);
-            this.linklbl_changepassword.Name = "linklbl_changepassword";
-            this.linklbl_changepassword.Size = new System.Drawing.Size(70, 13);
-            this.linklbl_changepassword.TabIndex = 3;
-            this.linklbl_changepassword.TabStop = true;
-            this.linklbl_changepassword.Text = "Doi mat khau";
-            this.linklbl_changepassword.Click += new System.EventHandler(this.linklbl_changepassword_Click);
-            // 
-            // lbl_newpass
-            // 
-            this.lbl_newpass.AutoSize = true;
-            this.lbl_newpass.Location = new System.Drawing.Point(23, 159);
-            this.lbl_newpass.Name = "lbl_newpass";
-            this.lbl_newpass.Size = new System.Drawing.Size(74, 13);
-            this.lbl_newpass.TabIndex = 4;
-            this.lbl_newpass.Text = "Mat khau moi:";
-            // 
-            // lbl_confirmpass
-            // 
-            this.lbl_confirmpass.AutoSize = true;
-            this.lbl_confirmpass.Location = new System.Drawing.Point(23, 214);
-            this.lbl_confirmpass.Name = "lbl_confirmpass";
-            this.lbl_confirmpass.Size = new System.Drawing.Size(122, 13);
-            this.lbl_confirmpass.TabIndex = 5;
-            this.lbl_confirmpass.Text = "Xac nhan mat khau moi:";
-            // 
-            // tbx_newpass
-            // 
-            this.tbx_newpass.Location = new System.Drawing.Point(23, 178);
-            this.tbx_newpass.MaxLength = 128;
-            this.tbx_newpass.Name = "tbx_newpass";
-            this.tbx_newpass.PasswordChar = '*';
-            this.tbx_newpass.Size = new System.Drawing.Size(189, 20);
-            this.tbx_newpass.TabIndex = 6;
-            // 
-            // tbx_confirmnewpass
-            // 
-            this.tbx_confirmnewpass.Location = new System.Drawing.Point(23, 230);
-            this.tbx_confirmnewpass.MaxLength = 128;
-            this.tbx_confirmnewpass.Name = "tbx_confirmnewpass";
-            this.tbx_confirmnewpass.PasswordChar = '*';
-            this.tbx_confirmnewpass.Size = new System.Drawing.Size(189, 20);
-            this.tbx_confirmnewpass.TabIndex = 7;
-            // 
-            // btn_cancel
-            // 
-            this.btn_cancel.Location = new System.Drawing.Point(23, 288);
-            this.btn_cancel.Name = "btn_cancel";
-            this.btn_cancel.Size = new System.Drawing.Size(100, 26);
-            this.btn_cancel.TabIndex = 8;
-            this.btn_cancel.Text = "Huy";
-            this.btn_cancel.UseVisualStyleBackColor = true;
-            this.btn_cancel.Click += new System.EventHandler(this.btn_cancel_Click);
-            // 
-            // btn_OK
-            // 
-            this.btn_OK.Location = new System.Drawing.Point(129, 288);
-            this.btn_OK.Name = "btn_OK";
-            this.btn_OK.Size = new System.Drawing.Size(100, 26);
-            this.btn_OK.TabIndex = 9;
-            this.btn_OK.Text = "Dong y";
-            this.btn_OK.UseVisualStyleBackColor = true;
-            this.btn_OK.Click += new System.EventHandler(this.btn_OK_Click);
+            this.linklbl_quantity.AutoSize = true;
+            this.linklbl_quantity.Location = new System.Drawing.Point(23, 86);
+            this.linklbl_quantity.Name = "linklbl_quantity";
+            this.linklbl_quantity.Size = new System.Drawing.Size(93, 13);
+            this.linklbl_quantity.TabIndex = 10;
+            this.linklbl_quantity.TabStop = true;
+            this.linklbl_quantity.Text = "So may da ban dc";
+            this.linklbl_quantity.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linklbl_quantity_LinkClicked);
             // 
             // Adminpage
             // 
@@ -429,5 +442,6 @@
         private System.Windows.Forms.LinkLabel linklbl_changepassword;
         private System.Windows.Forms.Button btn_OK;
         private System.Windows.Forms.Button btn_cancel;
+        private System.Windows.Forms.LinkLabel linklbl_quantity;
     }
 }

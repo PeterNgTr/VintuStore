@@ -41,6 +41,7 @@ namespace vintustore
             tbx_Specs.Text = "Tinh trang may:";
             tbx_Specs1.Text = "Bao hanh den:";
             ShowThePasswordArea(false);
+            lbl_quantity.Visible = false;
         }
 
         internal void PassSeller(string sellername,string email)
@@ -272,7 +273,33 @@ namespace vintustore
             {
                 if (CheckMatch(tbx_newpass, tbx_confirmnewpass) == true)
                 {
+                    if (CheckForInternetConnection() == true)
+                    {
+                        string changed;
 
+                        using (WebClient webClient = new WebClient())
+                        {
+                            webClient.Proxy = new WebProxy("vintustore.netai.net");
+                            changed = new WebClient().DownloadString("http://vintustore.netai.net/changepassword.php?us=" + tbx_Seller.Text + "&pw=" + tbx_newpass.Text);
+                        }
+                        if (changed == "success\t")
+                        {
+                            MessageBox.Show("Doi mau khau thanh cong. Xin vui long dang nhap lai", "Info");
+                            this.Hide();
+
+                            Login loginpage = new Login();
+                            loginpage.Show();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Xin thu lai! Co loi xay ra!", "Info");
+                        }
+
+                    }
+                    else
+                    {
+                        MessageBox.Show("Internet is DOWN. Xin vui long kiem tra lai duong truyen  !", "Warning");
+                    }
                 }
                 else
                 {
@@ -283,6 +310,34 @@ namespace vintustore
             else
             {
                 MessageBox.Show("Xin nhap mat khau moi."+"\n"+"Mat khau phai:" +"\n"+ "-Bat dau bang chu"+"\n"+ "-Lon hon hoac bang 8 ky tu","Info");
+            }
+        }
+
+        private void linklbl_quantity_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            if (CheckForInternetConnection() == true)
+            {                            
+                string countdevices;
+              
+                using (WebClient webClient = new WebClient())
+                {
+                    webClient.Proxy = new WebProxy("vintustore.netai.net");
+                    countdevices = new WebClient().DownloadString("http://vintustore.netai.net/count.php?user=" + tbx_Seller.Text);                  
+                }
+                if (countdevices != null)
+                {
+                    lbl_quantity.Visible = true;
+                    lbl_quantity.Text = countdevices.Trim(new char[] { '[',']','"','\t'}) + " may";                                         
+                }
+                else
+                {
+                    MessageBox.Show("Xin thu lai! Co loi xay ra!", "Info");
+                }
+
+            }
+            else
+            {
+                MessageBox.Show("Internet is DOWN. Xin vui long kiem tra lai duong truyen  !", "Warning");
             }
         }
        
