@@ -30,3 +30,16 @@ D:\vintustore\vintustore\obj\x86\Debug\vintustore.pdb
 D:\vintustore\vintustore\obj\x86\Debug\vintustore.Adminpage.resources
 E:\Development\Vintustore\vintustore\obj\x86\Debug\vintustore.Adminpage.resources
 E:\Development\Vintustore\vintustore\obj\x86\Debug\vintustore.Login.resources
+E:\Development\Vintustore\vintustore\bin\Debug\AutoUpdater.NET.dll
+E:\Development\Vintustore\vintustore\bin\Debug\AutoUpdater.NET.pdb
+E:\Development\Vintustore\vintustore\bin\Debug\AutoUpdater.NET.xml
+E:\Development\Vintustore\vintustore\bin\Debug\da\AutoUpdater.NET.resources.dll
+E:\Development\Vintustore\vintustore\bin\Debug\de\AutoUpdater.NET.resources.dll
+E:\Development\Vintustore\vintustore\bin\Debug\es\AutoUpdater.NET.resources.dll
+E:\Development\Vintustore\vintustore\bin\Debug\fr\AutoUpdater.NET.resources.dll
+E:\Development\Vintustore\vintustore\bin\Debug\it-IT\AutoUpdater.NET.resources.dll
+E:\Development\Vintustore\vintustore\bin\Debug\nl\AutoUpdater.NET.resources.dll
+E:\Development\Vintustore\vintustore\bin\Debug\pl\AutoUpdater.NET.resources.dll
+E:\Development\Vintustore\vintustore\bin\Debug\ru\AutoUpdater.NET.resources.dll
+E:\Development\Vintustore\vintustore\bin\Debug\sv\AutoUpdater.NET.resources.dll
+E:\Development\Vintustore\vintustore\obj\x86\Debug\vintustore.csprojResolveAssemblyReference.cache
