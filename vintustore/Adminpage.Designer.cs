@@ -50,6 +50,7 @@
             this.tbc_Invoice = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.linklbl_quantity = new System.Windows.Forms.LinkLabel();
             this.btn_OK = new System.Windows.Forms.Button();
             this.btn_cancel = new System.Windows.Forms.Button();
             this.tbx_confirmnewpass = new System.Windows.Forms.TextBox();
@@ -60,10 +61,13 @@
             this.lbl_email = new System.Windows.Forms.Label();
             this.lbl_username = new System.Windows.Forms.Label();
             this.lbl_quantity = new System.Windows.Forms.Label();
-            this.linklbl_quantity = new System.Windows.Forms.LinkLabel();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.lbl_currentversion = new System.Windows.Forms.Label();
+            this.linklbl_checkupdate = new System.Windows.Forms.LinkLabel();
             this.tbc_Invoice.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
+            this.tabPage3.SuspendLayout();
             this.SuspendLayout();
             // 
             // lbl_welcome
@@ -228,11 +232,13 @@
             // 
             this.tbc_Invoice.Controls.Add(this.tabPage1);
             this.tbc_Invoice.Controls.Add(this.tabPage2);
+            this.tbc_Invoice.Controls.Add(this.tabPage3);
             this.tbc_Invoice.Location = new System.Drawing.Point(12, 12);
             this.tbc_Invoice.Name = "tbc_Invoice";
             this.tbc_Invoice.SelectedIndex = 0;
             this.tbc_Invoice.Size = new System.Drawing.Size(341, 386);
             this.tbc_Invoice.TabIndex = 18;
+            this.tbc_Invoice.SelectedIndexChanged += new System.EventHandler(this.tbc_Invoice_SelectedIndexChanged);
             // 
             // tabPage1
             // 
@@ -282,6 +288,17 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Thong tin TK";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // linklbl_quantity
+            // 
+            this.linklbl_quantity.AutoSize = true;
+            this.linklbl_quantity.Location = new System.Drawing.Point(23, 86);
+            this.linklbl_quantity.Name = "linklbl_quantity";
+            this.linklbl_quantity.Size = new System.Drawing.Size(93, 13);
+            this.linklbl_quantity.TabIndex = 10;
+            this.linklbl_quantity.TabStop = true;
+            this.linklbl_quantity.Text = "So may da ban dc";
+            this.linklbl_quantity.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linklbl_quantity_LinkClicked);
             // 
             // btn_OK
             // 
@@ -377,16 +394,36 @@
             this.lbl_quantity.TabIndex = 0;
             this.lbl_quantity.Text = "number";
             // 
-            // linklbl_quantity
+            // tabPage3
             // 
-            this.linklbl_quantity.AutoSize = true;
-            this.linklbl_quantity.Location = new System.Drawing.Point(23, 86);
-            this.linklbl_quantity.Name = "linklbl_quantity";
-            this.linklbl_quantity.Size = new System.Drawing.Size(93, 13);
-            this.linklbl_quantity.TabIndex = 10;
-            this.linklbl_quantity.TabStop = true;
-            this.linklbl_quantity.Text = "So may da ban dc";
-            this.linklbl_quantity.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linklbl_quantity_LinkClicked);
+            this.tabPage3.Controls.Add(this.linklbl_checkupdate);
+            this.tabPage3.Controls.Add(this.lbl_currentversion);
+            this.tabPage3.Location = new System.Drawing.Point(4, 22);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Size = new System.Drawing.Size(333, 360);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "Kiem tra cap nhat";
+            this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // lbl_currentversion
+            // 
+            this.lbl_currentversion.AutoSize = true;
+            this.lbl_currentversion.Location = new System.Drawing.Point(24, 19);
+            this.lbl_currentversion.Name = "lbl_currentversion";
+            this.lbl_currentversion.Size = new System.Drawing.Size(35, 13);
+            this.lbl_currentversion.TabIndex = 0;
+            this.lbl_currentversion.Text = "label1";
+            // 
+            // linklbl_checkupdate
+            // 
+            this.linklbl_checkupdate.AutoSize = true;
+            this.linklbl_checkupdate.Location = new System.Drawing.Point(24, 46);
+            this.linklbl_checkupdate.Name = "linklbl_checkupdate";
+            this.linklbl_checkupdate.Size = new System.Drawing.Size(90, 13);
+            this.linklbl_checkupdate.TabIndex = 1;
+            this.linklbl_checkupdate.TabStop = true;
+            this.linklbl_checkupdate.Text = "Kiem tra cap nhat";
+            this.linklbl_checkupdate.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linklbl_checkupdate_LinkClicked);
             // 
             // Adminpage
             // 
@@ -405,6 +442,8 @@
             this.tabPage1.PerformLayout();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
+            this.tabPage3.ResumeLayout(false);
+            this.tabPage3.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -443,5 +482,8 @@
         private System.Windows.Forms.Button btn_OK;
         private System.Windows.Forms.Button btn_cancel;
         private System.Windows.Forms.LinkLabel linklbl_quantity;
+        private System.Windows.Forms.TabPage tabPage3;
+        private System.Windows.Forms.Label lbl_currentversion;
+        private System.Windows.Forms.LinkLabel linklbl_checkupdate;
     }
 }

@@ -9,6 +9,9 @@ using System.Windows.Forms;
 using System.Text.RegularExpressions;
 using System.Net;
 using System.IO;
+using System.Diagnostics;
+using System.Reflection;
+using AutoUpdaterDotNET;
 
 namespace vintustore
 {
@@ -42,6 +45,7 @@ namespace vintustore
             tbx_Specs1.Text = "Bao hanh den:";
             ShowThePasswordArea(false);
             lbl_quantity.Visible = false;
+            linklbl_checkupdate.Visible = false;
         }
 
         internal void PassSeller(string sellername,string email)
@@ -313,6 +317,16 @@ namespace vintustore
             }
         }
 
+        //Check update
+        public void checkcurrentversion()
+        {
+            Assembly assembly = Assembly.GetExecutingAssembly();
+            FileVersionInfo fileVersionInfo = FileVersionInfo.GetVersionInfo(assembly.Location);
+            string version = fileVersionInfo.ProductVersion;
+            lbl_currentversion.Text = "Ban dang dung phien ban: " + version;
+        }
+
+
         private void linklbl_quantity_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             if (CheckForInternetConnection() == true)
@@ -340,6 +354,17 @@ namespace vintustore
                 MessageBox.Show("Internet is DOWN. Xin vui long kiem tra lai duong truyen  !", "Warning");
             }
         }
+
+        private void tbc_Invoice_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            checkcurrentversion();
+        }
+
+        private void linklbl_checkupdate_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            AutoUpdater.Start("http://vintustore.netai.net/update/Appcast.xml");
+        }
+
        
     }
 }
