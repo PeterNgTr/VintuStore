@@ -23,6 +23,7 @@ namespace vintustore
 
             txtIMEI.ForeColor = Color.Gray;
             txtIMEI.Text = "Nhap so IMEI gom 15 chu so vao";
+            txtIMEI.Focus();
 
         }
 
@@ -195,7 +196,7 @@ namespace vintustore
 
         private void btnCheckWeb_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Process.Start("https://selfsolve.apple.com/agreementWarrantyDynamic.do");
+            //System.Diagnostics.Process.Start("https://selfsolve.apple.com/agreementWarrantyDynamic.do");
         }
 
         private void txtIMEI_Click(object sender, EventArgs e)
@@ -210,7 +211,10 @@ namespace vintustore
         {
             txtIMEI.ForeColor = Color.Gray;
             txtIMEI.Text = "Nhap so IMEI gom 15 chu so vao";
+            
         }
+
+        
 
         public static void ThreadProc()
         {
@@ -229,7 +233,23 @@ namespace vintustore
             Application.Exit();
         }
 
-        
+        private void btn_LoadAppleCheckIMEI_Click(object sender, EventArgs e)
+        {
+            webBrowser_apple.Navigate("https://selfsolve.apple.com/agreementWarrantyDynamic.do");
+        }
 
+        private void btn_iCloudCheck_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://www.icloud.com/activationlock/");
+        }
+
+        private void txtIMEI_MouseHover(object sender, EventArgs e)
+        {
+            txtIMEI.ForeColor = Color.Gray;
+            txtIMEI.Text = "";
+            txtIMEI.Text = "Nhap so IMEI gom 15 chu so vao";
+            txtIMEI.Focus();
+        }
+    
     }
 }

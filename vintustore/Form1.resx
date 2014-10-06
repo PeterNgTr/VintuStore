@@ -117,6 +117,18 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="lbl_About.Text" xml:space="preserve">
+    <value>Day la phan mem giup ban:
+- Kiem tra thong tin cua may mua o cua hang VINTUSTORE
+- Kiem tra thong tin may thong qua Apple 
+- Kiem tra tinh trang iCloud cua thiet bi
+
+Co gi moi:
+- Tich hop kiem tra thong tin may thong qua Apple tren ung dung
+- Sua mot so loi. :)
+
+(c) 2004 Copy Rights. All Rights reserved. Developed by GERMANITEEN</value>
+  </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
