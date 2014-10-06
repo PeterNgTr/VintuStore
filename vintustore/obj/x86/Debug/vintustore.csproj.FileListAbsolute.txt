@@ -43,3 +43,14 @@ E:\Development\Vintustore\vintustore\bin\Debug\pl\AutoUpdater.NET.resources.dll
 E:\Development\Vintustore\vintustore\bin\Debug\ru\AutoUpdater.NET.resources.dll
 E:\Development\Vintustore\vintustore\bin\Debug\sv\AutoUpdater.NET.resources.dll
 E:\Development\Vintustore\vintustore\obj\x86\Debug\vintustore.csprojResolveAssemblyReference.cache
+E:\Development\vintustore\bin\Debug\vintustore.exe.config
+E:\Development\vintustore\obj\x86\Debug\vintustore.exe
+E:\Development\vintustore\obj\x86\Debug\vintustore.pdb
+E:\Development\vintustore\bin\Debug\vintustore.exe
+E:\Development\vintustore\bin\Debug\vintustore.pdb
+E:\Development\vintustore\obj\x86\Debug\vintustore.csprojResolveAssemblyReference.cache
+E:\Development\vintustore\obj\x86\Debug\vintustore.Adminpage.resources
+E:\Development\vintustore\obj\x86\Debug\vintustore.Form1.resources
+E:\Development\vintustore\obj\x86\Debug\vintustore.Login.resources
+E:\Development\vintustore\obj\x86\Debug\vintustore.Properties.Resources.resources
+E:\Development\vintustore\obj\x86\Debug\vintustore.csproj.GenerateResource.Cache

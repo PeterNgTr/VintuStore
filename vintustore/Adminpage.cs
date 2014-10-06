@@ -1,9 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using System.Text.RegularExpressions;
@@ -11,16 +6,16 @@ using System.Net;
 using System.IO;
 using System.Diagnostics;
 using System.Reflection;
-using AutoUpdaterDotNET;
+
 
 namespace vintustore
 {
     public partial class Adminpage : Form
     {
         static string purchaseprefix = "vintu";
-        
+
         private readonly Random _rng = new Random();
-       
+
         private const string _chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
 
         private string RandomString(int size)
@@ -33,7 +28,7 @@ namespace vintustore
             }
             return new string(buffer);
         }
-            
+
         public Adminpage()
         {
             InitializeComponent();
@@ -48,12 +43,12 @@ namespace vintustore
             linklbl_checkupdate.Visible = false;
         }
 
-        internal void PassSeller(string sellername,string email)
+        internal void PassSeller(string sellername, string email)
         {
             lbl_welcome.Text = "Chao mung: " + sellername;
             tbx_Seller.Text = sellername;
             lbl_username.Text = "Chu TK: " + sellername;
-            lbl_email.Text = "Email TK: " + email.Replace("]","");
+            lbl_email.Text = "Email TK: " + email.Replace("]", "");
         }
 
         public string getCurrentDate()
@@ -67,13 +62,13 @@ namespace vintustore
         {
             MaximizeBox = false;
             FormBorderStyle = FormBorderStyle.FixedSingle;
-           // ptb_loading.Visible = false;
+            // ptb_loading.Visible = false;
         }
 
         public static void ThreadProc()
         {
             Application.Run(new Form1());
-        }        
+        }
 
         private void btn_exit_Click(object sender, EventArgs e)
         {
@@ -162,7 +157,49 @@ namespace vintustore
             btn_OK.Visible = value;
 
         }
-      
+
+        public void Writetofile()
+        {
+            // Compose a string that consists of three lines.
+            string desktoppath = Environment.GetFolderPath(
+                         System.Environment.SpecialFolder.DesktopDirectory);
+
+            DateTime dateTime = DateTime.UtcNow.Date;
+            dateTime.ToString("yyyy");
+
+
+            string pathtowrite = desktoppath + "\\" + dateTime.ToString("yyyy");
+
+            string lines = "Hoa don ban may VINTUSTORE" + "\r\n" +
+                            "=============================" + "\r\n" +
+                            "Ngay: " + tbx_Date.Text + "\r\n" +
+                            "So hoa don:" + tbx_PurID.Text + "\r\n" +
+                            "IMEI: " + tbx_IMEI.Text + "\r\n" +
+                            "Ten may:" + tbx_Name.Text + "\r\n" +
+                            "Gia ban:" + tbx_Price.Text + "\r\n" +
+                            "Mieu ta:" + tbx_Specs.Text + "\\" + tbx_Specs1.Text + "\r\n" +
+                            "Nguoi ban:" + tbx_Seller.Text + "\r\n" +
+                            "\r\n" +
+                            "=============================";
+
+            // Write the string to a file.
+
+
+
+            System.IO.Directory.CreateDirectory(pathtowrite);
+            FileStream invoice = new FileStream(pathtowrite + "\\hoadon-" + tbx_PurID.Text + ".txt", FileMode.CreateNew);
+            byte[] byteData = null;
+            byteData = Encoding.ASCII.GetBytes(lines);
+            invoice.Write(byteData, 0, byteData.Length);
+
+            invoice.Flush();
+
+
+
+
+        }
+
+
         private void btn_Purchase_Click(object sender, EventArgs e)
         {
 
@@ -174,23 +211,24 @@ namespace vintustore
                     {
                         if (CheckForInternetConnection() == true)
                         {
-                           // ptb_loading.Visible = true;
+                            // ptb_loading.Visible = true;
                             SetReadOnlyTextbox(true);
                             string adddevice;
                             string addpurchase;
                             using (WebClient webClient = new WebClient())
                             {
                                 webClient.Proxy = new WebProxy("vintustore.netai.net");
-                                adddevice = new WebClient().DownloadString("http://vintustore.netai.net/addnewdevice.php?name=" + tbx_Name.Text + "&imei=" + tbx_IMEI.Text + "&price=" + tbx_Price.Text + "&specs=" + tbx_Specs.Text+","+tbx_Specs1.Text);
+                                adddevice = new WebClient().DownloadString("http://vintustore.netai.net/addnewdevice.php?name=" + tbx_Name.Text + "&imei=" + tbx_IMEI.Text + "&price=" + tbx_Price.Text + "&specs=" + tbx_Specs.Text + "," + tbx_Specs1.Text);
                                 addpurchase = new WebClient().DownloadString("http://vintustore.netai.net/addnewpurchasing.php?purid=" + tbx_PurID.Text + "&imei=" + tbx_IMEI.Text + "&purdate=" + tbx_Date.Text + "&adminid=" + tbx_Seller.Text);
                             }
                             if (adddevice != null && addpurchase != null)
                             {
-                                if (adddevice == "device\t" && addpurchase == "purchase\t")
+                                if (adddevice.Contains("device") == true && addpurchase == "purchase\t")
                                 {
                                     //  ptb_loading.Visible = false;
                                     SetReadOnlyTextbox(false);
-                                    MessageBox.Show("Da nhap thanh cong", "Info");
+                                    MessageBox.Show("Da nhap thanh cong. Hoa don da duoc luu tren Desktop", "Info");
+                                    Writetofile();
                                     ResetTextbox();
 
                                     //  this.Hide();
@@ -208,9 +246,9 @@ namespace vintustore
                             }
                             else
                             {
-                                MessageBox.Show("Xin thu lai! Co loi xay ra!","Info");
+                                MessageBox.Show("Xin thu lai! Co loi xay ra!", "Info");
                             }
-                           
+
                         }
                         else
                         {
@@ -232,7 +270,7 @@ namespace vintustore
             {
                 MessageBox.Show("Xin vui long nhap Ten dien thoai", "Info");
             }
-           
+
         }
 
         private void linklbl_changepassword_Click(object sender, EventArgs e)
@@ -252,7 +290,7 @@ namespace vintustore
             {
                 return true;
             }
-            else 
+            else
             {
                 return false;
             }
@@ -313,7 +351,7 @@ namespace vintustore
             }
             else
             {
-                MessageBox.Show("Xin nhap mat khau moi."+"\n"+"Mat khau phai:" +"\n"+ "-Bat dau bang chu"+"\n"+ "-Lon hon hoac bang 8 ky tu","Info");
+                MessageBox.Show("Xin nhap mat khau moi." + "\n" + "Mat khau phai:" + "\n" + "-Bat dau bang chu" + "\n" + "-Lon hon hoac bang 8 ky tu", "Info");
             }
         }
 
@@ -330,18 +368,18 @@ namespace vintustore
         private void linklbl_quantity_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             if (CheckForInternetConnection() == true)
-            {                            
+            {
                 string countdevices;
-              
+
                 using (WebClient webClient = new WebClient())
                 {
                     webClient.Proxy = new WebProxy("vintustore.netai.net");
-                    countdevices = new WebClient().DownloadString("http://vintustore.netai.net/count.php?user=" + tbx_Seller.Text);                  
+                    countdevices = new WebClient().DownloadString("http://vintustore.netai.net/count.php?user=" + tbx_Seller.Text);
                 }
                 if (countdevices != null)
                 {
                     lbl_quantity.Visible = true;
-                    lbl_quantity.Text = countdevices.Trim(new char[] { '[',']','"','\t'}) + " may";                                         
+                    lbl_quantity.Text = countdevices.Trim(new char[] { '[', ']', '"', '\t' }) + " may";
                 }
                 else
                 {
@@ -362,9 +400,9 @@ namespace vintustore
 
         private void linklbl_checkupdate_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            AutoUpdater.Start("http://vintustore.netai.net/update/Appcast.xml");
+            //  AutoUpdater.Start("http://vintustore.netai.net/update/Appcast.xml");
         }
 
-       
+
     }
 }

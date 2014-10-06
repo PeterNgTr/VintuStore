@@ -43,38 +43,38 @@ namespace vintustore
         public void btn_signin_Click(object sender, EventArgs e)
         {
             string returnedseller;
-            
+
             using (WebClient webClient = new WebClient())
             {
                 webClient.Proxy = new WebProxy("vintustore.netai.net");
-                returnedseller = new WebClient().DownloadString("http://vintustore.netai.net/getuser.php?user=" + tbx_username.Text+"&password=" +tbx_password.Text );
+                returnedseller = new WebClient().DownloadString("http://vintustore.netai.net/getuser.php?user=" + tbx_username.Text + "&password=" + tbx_password.Text);
                 sellerinfo = returnedseller.Split(',');
             }
 
             if (CheckUserName(returnedseller) == true)
-            {              
-                MessageBox.Show("Xin chao ! "+ tbx_username.Text + " : Dang nhap thanh cong","Welcome");
+            {
+                MessageBox.Show("Xin chao ! " + tbx_username.Text + " : Dang nhap thanh cong", "Welcome");
                 OpenNewForm();
-            }                                
+            }
             else
             {
                 MessageBox.Show("Thu lai ! Dang nhap khong thanh cong");
                 tbx_username.Focus();
             }
         }
-       
+
         public void OpenNewForm()
         {
             this.Hide();
             string sellerlogin = tbx_username.Text;
             Adminpage admin = new Adminpage();
-            admin.PassSeller(sellerlogin,sellerinfo[1].ToString());
+            admin.PassSeller(sellerlogin, sellerinfo[1].ToString());
             admin.Show();
-          
+
         }
 
-       
-       
+
+
 
         private void tbx_password_KeyDown(object sender, KeyEventArgs e)
         {
